@@ -9,9 +9,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ReadFile {
-    public static ArrayList<Integer> getDataOfFile(String path) throws FileNotFoundException {
-        final Path pathVariable = Paths.get("/Users/user/Desktop/Programowanie/Java/Adventofcode/src/" + path);
-        ArrayList<Integer> listOfNumbers;
+    public static ArrayList<String> getDataOfFile(String path) throws FileNotFoundException {
+        /*
+        src/
+         */
+        final Path pathVariable = Paths.get("/Users/user/Desktop/Programowanie/Java/Adventofcode/src/AdventOfCode/" + path);
+        ArrayList<String> listOfNumbers;
 
         try (var in = new Scanner(
                 new FileInputStream(String.valueOf(pathVariable)), StandardCharsets.UTF_8)) {
@@ -20,10 +23,10 @@ public class ReadFile {
         return listOfNumbers;
     }
 
-    private static ArrayList<Integer> readData(Scanner in) {
-        var numbers = new ArrayList<Integer>();
+    private static ArrayList<String> readData(Scanner in) {
+        var numbers = new ArrayList<String>();
         while (in.hasNext()) {
-            numbers.add(in.nextInt());
+            numbers.add(in.nextLine());
         }
         return numbers;
     }

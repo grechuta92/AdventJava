@@ -10,7 +10,7 @@ public class SummaryTo2020 extends ReadFile {
 
     public static void main(String[] args) throws FileNotFoundException {
 
-        ArrayList<Integer> listOfNumbers;
+        ArrayList<String> listOfNumbers;
 
         listOfNumbers = getDataOfFile("AdventOfCode/Day_1/puzzleInput");
 
@@ -18,7 +18,7 @@ public class SummaryTo2020 extends ReadFile {
     }
 
 
-    private static void printMultiplicationOfNumbers(final ArrayList<Integer> listOfNumbers) {
+    private static void printMultiplicationOfNumbers( ArrayList<String> listOfNumbers) {
         ArrayList<Integer> multiplicationList = new ArrayList<>();
 
         multiplicationList.add(findNumbers(listOfNumbers));
@@ -27,12 +27,12 @@ public class SummaryTo2020 extends ReadFile {
 
     }
 
-    private static Integer findNumbers(final ArrayList<Integer> listOfNumbers) {
-        for(Integer var1: listOfNumbers){
-            for(Integer var2: listOfNumbers){
-                for(Integer var3: listOfNumbers){
-                    if (var1 + var2 + var3 == 2020){
-                        return var1 * var2 * var3;
+    private static Integer findNumbers( ArrayList<String> listOfNumbers) {
+        for(String var1: listOfNumbers){
+            for(String var2: listOfNumbers){
+                for(String var3: listOfNumbers){
+                    if (Integer.parseInt(var1) + Integer.parseInt(var2) + Integer.parseInt(var3) == 2020){
+                        return Integer.parseInt(var1) * Integer.parseInt(var2) * Integer.parseInt(var3);
                     }
                 }
             }
