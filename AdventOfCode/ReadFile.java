@@ -9,18 +9,19 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ReadFile {
-    public static ArrayList<String> getDataOfFile(String path) throws FileNotFoundException {
-        /*
-        src/
-         */
+    public static ArrayList<String> getDataOfFile(String path)  {
+
         final Path pathVariable = Paths.get("/Users/user/Desktop/Programowanie/Java/Adventofcode/src/AdventOfCode/" + path);
         ArrayList<String> listOfNumbers;
 
         try (var in = new Scanner(
                 new FileInputStream(String.valueOf(pathVariable)), StandardCharsets.UTF_8)) {
             listOfNumbers = readData(in);
+            return listOfNumbers;
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
-        return listOfNumbers;
+        return null;
     }
 
     private static ArrayList<String> readData(Scanner in) {
